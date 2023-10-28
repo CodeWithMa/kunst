@@ -1,4 +1,6 @@
-<p align="center"><img src="extra/kunst_logo.png"><br><sub>✨ Download and display album art or display embedded album art  ✨</sub></p>
+![](extra/kunst_logo.png)
+
+✨ Find album art for the currently playing song in MPD  ✨
 
 This is a fork of [kunst](https://github.com/sdushantha/kunst) with less features.
 I removed all features that I did not need.
