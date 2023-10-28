@@ -127,14 +127,23 @@ main() {
   while true; do
     update_cover
 
-    log "swapped album art to $(mpc current)"
+    log "Swapped album art to $(mpc current)."
 
     # Waiting for an event from mpd; play/pause/next/previous
     # this is lets kunst use less CPU :)
+    previous_album="$(mpc current -f %album%)"
     while true; do
-      mpc idle player &>/dev/null && (mpc status | grep "\[playing\]" &>/dev/null) && break
+        mpc idle player &>/dev/null
+        log "Received event from mpd: $(mpc current)."
+        if mpc status | grep "\[playing\]" &>/dev/null; then
+            current_album="$(mpc current -f %album%)"
+            if [ "$current_album" != "$previous_album" ]; then
+                log "Album changed from $previous_album to $current_album."
+                break
+            fi
+            log "No change in album. Album is still $current_album."
+        fi
     done
-    log "received event from mpd"
   done
 }
 
