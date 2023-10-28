@@ -83,7 +83,7 @@ export KUNST_MUSIC_DIR="/home/username/Music/"
 
 ## Display album art
 
-I use `feh` do display the image written to `/tmp/kunst.jpg`.
+I use `feh` to display the image written to `/tmp/kunst.jpg`.
 `feh` will automatically switch to a new image if it changes on disk.
 
 ``` bash
